@@ -13,8 +13,13 @@ describe Configus2 do
         key_top "key_top"
       end
     end
-    configus2[:key_top].should == "key_top"
-    configus2[:level1][:level2][:level2_key1].should == ["level2_key1"]
-    configus2[:level1][:level1_key1].should == ["value","value1"]
+    
+    puts configus2.class.name
+    
+    configus2.to_hash[:key_top].should == "key_top"
+    #configus2.parsed_data[:level1][:level2][:level2_key1].should == ["level2_key1"]
+    #configus2.parsed_data[:level1][:level1_key1].should == ["value","value1"]
+    #configus2.key_top.should == "key_top"
+    
   end
 end

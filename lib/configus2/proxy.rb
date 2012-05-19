@@ -15,6 +15,21 @@ module Configus2
         @parsed_data[method_sym] = arguments.first
       end
     end
+    
+    def bm(data)
+      build_methods(data)
+    end
+    
+    def build_methods(data)
+      data.each do |key, value|
+        if value.is_a?(Hash)
+          build_methods(value)
+        else
+          puts "define_method key=#{key} value=#{value}"
+          define_method(key) { value }
+        end
+      end
+    end
 
   end
 end
