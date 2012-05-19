@@ -1,5 +1,11 @@
 require "configus2/version"
 
 module Configus2
-  # Your code goes here...
+  autoload :Builder, "configus2/builder"
+  autoload :Proxy, "configus2/proxy"
+
+  def self.build(env, &block)
+    builder = Builder.build(env, &block)
+  end
+
 end
