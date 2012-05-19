@@ -1,30 +1,22 @@
 module Configus2
   class Builder
-
-    attr_reader :hash_tree
+    attr_reader :envs
 
     def initialize(env, &block)
-      @hash_tree = {}
-      @env = env
+      @envs = {}
       instance_eval(&block)
     end
 
     def env(env_name, options={}, &block)
       p = Proxy.new(&block)
-      #p.bm(p.parsed_data)
-      @hash_tree[env_name] = p.parsed_data
+      @envs[env_name] = p.get_config
     end
 
-    def to_hash
-      @hash_tree[@env]
-    end
-    
     class << self
       def build(env, &block)
         b = new(env, &block)
-        b
+        b.envs[env]
       end
-
     end
 
   end
