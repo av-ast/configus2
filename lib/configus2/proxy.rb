@@ -9,6 +9,8 @@ module Configus2
 
     def method_missing(method_sym, *arguments, &block)
       if block_given?
+        p = Proxy.new(&block)
+        @parsed_data[method_sym] = p.parsed_data
       else
         @parsed_data[method_sym] = arguments.first
       end
