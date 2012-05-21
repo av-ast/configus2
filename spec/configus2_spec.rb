@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Configus2 do
   before do
-    @configus2 = Configus2.build :development do
+    Configus2.build :development do
       env :production do
         level1 do
           level2 do
@@ -27,14 +27,14 @@ describe Configus2 do
   end
 
   it "should return value for key" do
-    @configus2.key_top.should == "key_top"
-    @configus2.level1.another_level2.level3.dev_key.should == "key_dev"
-    @configus2.level1.another_level2.arr.should == ["one", "two"]
-    @configus2.level1[:another_level2].arr.should == ["one", "two"]
+    configus2.key_top.should == "key_top"
+    configus2.level1.another_level2.level3.dev_key.should == "key_dev"
+    configus2.level1.another_level2.arr.should == ["one", "two"]
+    configus2.level1[:another_level2].arr.should == ["one", "two"]
   end
 
   it "should return hash" do
-    @configus2.level1.to_hash.should == {
+    configus2.level1.to_hash.should == {
       :another_level2 => {
         :arr => ["one", "two"],
         :level3 => {
@@ -45,7 +45,7 @@ describe Configus2 do
   end
 
   it "shouldn't return parent's overridden values" do
-    @configus2.level1.to_hash[:level1_key].should be_nil
+    configus2.level1.to_hash[:level1_key].should be_nil
   end
 
 end

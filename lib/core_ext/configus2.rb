@@ -1,5 +1,5 @@
 module Kernel
   def configus2
-    # TODO: include configus2 into Kernel here
+    Configus2.configus2
   end
 end
