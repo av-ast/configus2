@@ -21,5 +21,9 @@ module Configus2
       config.get
     end
 
+    def merge_with_parent(parent)
+      @hash_data = parent.to_hash.merge(@hash_data)
+    end
+
   end
 end

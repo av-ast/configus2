@@ -9,6 +9,13 @@ module Configus2
 
     def env(env_name, options={}, &block)
       p = Proxy.new(&block)
+      if options[:parent]
+        if @envs[options[:parent]]
+          p.merge_with_parent(@envs[options[:parent]])
+        else
+          raise ParentEnvDoesNotExist
+        end
+      end
       @envs[env_name] = p.get_config
     end
 
