@@ -21,8 +21,16 @@ module Configus2
       Config.new(@config)
     end
 
+    def [](key)
+      @config[key]
+    end
+
     def to_hash
-      @config.to_hash
+      res_hash = {}
+      @config.to_hash.each do |k,v|
+        res_hash[k] = v.instance_of?(Config) ? v.to_hash : v
+      end
+      res_hash
     end
   end
 end
