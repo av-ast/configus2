@@ -1,5 +1,6 @@
 # Configus2
 
+[![Build Status](https://secure.travis-ci.org/av-ast/configus2.png)](http://travis-ci.org/av-ast/configus2)
 TODO: Write a gem description
 
 ## Installation
