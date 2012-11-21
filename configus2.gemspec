@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "configus2"
   gem.require_paths = ["lib"]
   gem.version       = Configus2::VERSION
+
+  gem.add_development_dependency "rspec"
+  gem.add_runtime_dependency "rake"
 end
