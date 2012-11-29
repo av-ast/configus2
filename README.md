@@ -1,6 +1,7 @@
 # Configus2
 
 [![Build Status](https://secure.travis-ci.org/av-ast/configus2.png)](http://travis-ci.org/av-ast/configus2)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/av-ast/configus2)
 TODO: Write a gem description
 
 ## Installation
